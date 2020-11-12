@@ -9,6 +9,7 @@ const geocode = require('./utils/geocode')
 
 
 const app = express()
+const port = process.env.PORT || 3000     // 'port' variable ro access heroku variable 
 
 // Define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public')   // path is a core node module used to shift directories
@@ -146,6 +147,10 @@ app.get('*', (req, res) => {               // this route is set up in the last b
     })
 
 
-app.listen(3000, () => {
-    console.log('Server is us on port 3000')
+// app.listen(3000, () => {
+//     console.log('Server is us on port 3000')
+// })
+
+app.listen(port, () => {
+    console.log('Server is us on port ' + port)
 })
